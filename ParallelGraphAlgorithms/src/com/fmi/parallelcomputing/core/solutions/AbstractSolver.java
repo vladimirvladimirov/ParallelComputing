@@ -1,6 +1,5 @@
 package com.fmi.parallelcomputing.core.solutions;
 
-import com.fmi.parallelcomputing.core.Constants;
 import com.fmi.parallelcomputing.graph.Graph;
 import com.fmi.parallelcomputing.utils.ExceptionsMessages;
 import com.fmi.parallelcomputing.utils.FileReader;
@@ -12,9 +11,17 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Dev on 3/7/2015.
+ * Model for solutions for various number of tasks, related with graphs, such as the traveling salesman problem
+ * or algorithms for path searching
  */
 public abstract class AbstractSolver {
+
+    /**
+     * Actual instance of the class that finds the solution.
+     */
+    protected static AbstractSolver solver;
+
+    // Fields in the solver
 
     protected PrintWriter out;
 
@@ -41,7 +48,7 @@ public abstract class AbstractSolver {
         out = new PrintWriter(System.out);
     }
 
-    public abstract void readGraph() throws IOException;
+    public abstract void readInput() throws IOException;
 
     public abstract void solve() throws Exception;
 
@@ -61,8 +68,7 @@ public abstract class AbstractSolver {
 
 
     public static void main(String [] args) throws Exception {
-        DynamicProgrammingSolution solver = new DynamicProgrammingSolution(16, Constants.INPUT_FILENAME);
-        solver.readGraph();
+        solver.readInput();
         solver.startTimer();
         solver.solve();
         solver.endTimer();

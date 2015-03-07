@@ -81,7 +81,7 @@ public class TestGenerator {
         Map<GraphConstant, Integer> graphConfig = new HashMap<GraphConstant, Integer>();
         graphConfig.put(GraphConstant.GRAPH_MIN_EDGE, -1000);
         graphConfig.put(GraphConstant.GRAPH_MAX_EDGE, 1000);
-        int nodeNumber = 20;
+        int nodeNumber = 21;
         graphConfig.put(GraphConstant.GRAPH_NODE_NUMBER, nodeNumber);
         graphConfig.put(GraphConstant.GRAPH_MAX_NODE_DEGREE, nodeNumber - 1);
         return graphConfig;

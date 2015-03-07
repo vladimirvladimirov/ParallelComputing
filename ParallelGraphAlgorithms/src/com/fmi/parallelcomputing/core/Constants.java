@@ -15,8 +15,8 @@ public class Constants {
 
     public static final int DEFAULT_THREAD_COUNT = 1;
 
-    public static final int FILENAME_INDEX = 5;
-    public static final String INPUT_FILENAME = String.format("test%d.txt", FILENAME_INDEX);
+    public static final int FILENAME_INDEX = 1;
+    public static final String INPUT_FILENAME = String.format("test%d.in", FILENAME_INDEX);
     public static final String SOLUTION_FILENAME = String.format("test%d.sol", FILENAME_INDEX);
 
     public enum GraphConstant {
