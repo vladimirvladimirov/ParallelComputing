@@ -35,7 +35,7 @@ public class FloydWarshallTestGenerator {
         inputGraphProperties.put(Constants.GraphConstant.GRAPH_MAX_EDGE, 10000);
         inputGraphProperties.put(Constants.GraphConstant.GRAPH_NODE_NUMBER, 2*5120);
 
-        FloydWarshallTestGenerator generator = new FloydWarshallTestGenerator(inputGraphProperties, Constants.INPUT_FILENAME);
+        FloydWarshallTestGenerator generator = new FloydWarshallTestGenerator(inputGraphProperties, Constants.GRAPH_INPUT_FILENAME);
         generator.createGraphMatrix();
         generator.printGraph();
     }

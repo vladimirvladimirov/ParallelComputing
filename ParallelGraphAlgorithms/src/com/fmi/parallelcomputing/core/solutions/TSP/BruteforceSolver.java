@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * This class provides functionality to solve the TSP by using bruteforce.
  */
-public class BruteforceSolver extends DynamicProgrammingSolution {
+public class BruteforceSolver extends DynamicProgrammingSolver {
 
     private int answer = 0x7fffffff;
 
@@ -65,7 +65,7 @@ public class BruteforceSolver extends DynamicProgrammingSolution {
     }
 
     public static void main(String [] args) throws Exception {
-        new BruteforceSolver(32, Constants.INPUT_FILENAME);
+        new BruteforceSolver(32, Constants.GRAPH_INPUT_FILENAME);
         AbstractSolver.main(args);
     }
 }

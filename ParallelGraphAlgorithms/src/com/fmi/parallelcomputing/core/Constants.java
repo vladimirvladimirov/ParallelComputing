@@ -1,7 +1,6 @@
 package com.fmi.parallelcomputing.core;
 
 /**
- * Created by Dev on 3/6/2015.
  */
 public class Constants {
 
@@ -15,11 +14,23 @@ public class Constants {
 
     public static final int DEFAULT_THREAD_COUNT = 1;
 
-    public static final int FILENAME_INDEX = 1;
-    public static final String INPUT_FILENAME = String.format("test%d.in", FILENAME_INDEX);
-    public static final String SOLUTION_FILENAME = String.format("test%d.sol", FILENAME_INDEX);
+    public static final int GRAPH_FILENAME_INDEX = 1;
+    public static final String GRAPH_INPUT_FILENAME = String.format("graph%d.in", GRAPH_FILENAME_INDEX);
+    public static final String GRAPH_SOLUTION_FILENAME = String.format("graph%d.sol", GRAPH_FILENAME_INDEX);
 
+    public static final int PARTITION_FILENAME_INDEX = 3;
+    public static final String PARTITION_INPUT_FILENAME = String.format("partition%d.in", PARTITION_FILENAME_INDEX);
+    public static final String PARTITION_SOLUTION_FILENAME = String.format("partition%d.sol", PARTITION_FILENAME_INDEX);
+    public static final int MAX_INT = 0x7fffffff;
+
+    /**
+     * Constants, used for generating graphs.
+     */
     public enum GraphConstant {
-        GRAPH_MAX_EDGE, GRAPH_MIN_EDGE, GRAPH_MAX_NODE_DEGREE, GRAPH_NODE_NUMBER;
+        GRAPH_MAX_EDGE, GRAPH_MIN_EDGE, GRAPH_MAX_NODE_DEGREE, GRAPH_NODE_NUMBER
+    }
+
+    public enum PartitionProblemConstants {
+        NUMBERS_COUNT, MIN_NUMBER, MAX_NUMBER
     }
 }

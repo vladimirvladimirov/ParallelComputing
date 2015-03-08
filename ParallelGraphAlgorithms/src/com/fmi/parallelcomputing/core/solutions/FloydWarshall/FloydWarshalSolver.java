@@ -29,8 +29,6 @@ public class FloydWarshalSolver extends AbstractSolver {
 
     private CopyOnWriteArrayList<ColumnWorker> workers;
 
-    private final Lock lock = new Lock();
-
     public FloydWarshalSolver(int threadCount, String inputFilename) throws IOException {
         super(threadCount, inputFilename);
         solver = this;
@@ -93,11 +91,9 @@ public class FloydWarshalSolver extends AbstractSolver {
     }
 
     public static void main(String [] args) throws Exception {
-        new FloydWarshalSolver(4, Constants.INPUT_FILENAME);
+        new FloydWarshalSolver(4, Constants.GRAPH_INPUT_FILENAME);
         AbstractSolver.main(args);
     }
-
-    private static final class Lock {}
 
     /**
      * This class should be used when parallelizing only on one dimention - in this case it's columns, but it might as well be a row parallelization

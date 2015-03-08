@@ -35,7 +35,7 @@ public class TravelingSalesmanTestGenerator {
 
     public static void main(String[] args) throws Exception {
         Map<GraphConstant, Integer> graphProperties = generateGraphProperties(args);
-        TravelingSalesmanTestGenerator generator = new TravelingSalesmanTestGenerator(graphProperties, Constants.INPUT_FILENAME, Constants.SOLUTION_FILENAME);
+        TravelingSalesmanTestGenerator generator = new TravelingSalesmanTestGenerator(graphProperties, Constants.GRAPH_INPUT_FILENAME, Constants.GRAPH_SOLUTION_FILENAME);
         generator.createGraph();
         generator.printGraph();
         generator.printSolution();

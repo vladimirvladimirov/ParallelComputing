@@ -30,21 +30,39 @@ public class UtilsTest {
     }
 
     @Test
-    public void testDivisionLoad() {
+         public void testDivisionLoad() {
         for(int i=0; i<50; i++) {
             int totalLoad = Utils.getIntInRange(100,1000);
             int threadCount = Utils.getIntInRange(1,20);
             List<Interval> division = Utils.divideLoad(totalLoad, threadCount);
-            System.out.println(String.format("Load: %d Threads: %d",totalLoad,threadCount));
+//            System.out.println(String.format("Load: %d Threads: %d",totalLoad,threadCount));
 
             int totalIntervalLength = 0;
             for(Interval interval : division) {
-                System.out.println(String.format("%d %d = %d",interval.getA(),interval.getB(),interval.getB() - interval.getA() + 1));
+//                System.out.println(String.format("%d %d = %d",interval.getA(),interval.getB(),interval.getB() - interval.getA() + 1));
                 totalIntervalLength += interval.getB() - interval.getA() + 1;
             }
             assertEquals(threadCount, division.size());
             assertEquals(totalLoad, totalIntervalLength);
         }
     }
+    @Test
+    public void testDivisionLoadStartingFrom() {
+        for(int i=0; i<50; i++) {
+            int totalLoad = Utils.getIntInRange(100,1000);
+            int threadCount = Utils.getIntInRange(1,20);
+            int startingFrom = Utils.getIntInRange(-10,10);
+            List<Interval> division = Utils.divideLoad(totalLoad, threadCount, startingFrom);
+            System.out.println(String.format("Load: %d Threads: %d Starting from %d",totalLoad,threadCount, startingFrom));
 
+            int totalIntervalLength = 0;
+            for(Interval interval : division) {
+                System.out.println(String.format("%d %d = %d",interval.getA(),interval.getB(),interval.getB() - interval.getA() + 1));
+                totalIntervalLength += interval.getB() - interval.getA() + 1;
+            }
+            assertEquals(startingFrom, division.get(0).getA());
+            assertEquals(threadCount, division.size());
+            assertEquals(totalLoad, totalIntervalLength);
+        }
+    }
 }

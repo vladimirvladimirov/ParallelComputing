@@ -1,12 +1,10 @@
 package com.fmi.parallelcomputing.core.solutions;
 
-import com.fmi.parallelcomputing.graph.Graph;
 import com.fmi.parallelcomputing.utils.FileReader;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Model for solutions for various number of tasks, related with graphs, such as the traveling salesman problem
@@ -27,13 +25,13 @@ public abstract class AbstractSolver {
 
     protected int threadCount;
 
-    protected Graph graph;
-
     protected Date timestampAlgorithmBegin;
 
     protected Date timestampAlgorithmEnd;
 
     protected int answer;
+
+    protected final Object lock = new Lock();
 
     protected AbstractSolver(int threadCount, String inputFilename) throws IOException {
 //        if (!Utils.isPowerOf2(threadCount)) {
@@ -65,5 +63,8 @@ public abstract class AbstractSolver {
         solver.solve();
         solver.endTimer();
         solver.logResults();
+    }
+
+    private static final class Lock {
     }
 }

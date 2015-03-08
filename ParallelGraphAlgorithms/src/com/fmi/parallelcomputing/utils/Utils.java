@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Dev on 3/7/2015.
+ * Utility methods for the whole project.
  */
 public class Utils {
 
@@ -47,6 +47,15 @@ public class Utils {
             currBegin += divisionSize;
         }
 
+        return partitions;
+    }
+
+    public static List<Interval> divideLoad(int indexesToCheck, int threadCount, int startingIndex) {
+        List<Interval> partitions = divideLoad(indexesToCheck,threadCount);
+        for(Interval interval : partitions) {
+            interval.setA(interval.getA() + startingIndex);
+            interval.setB(interval.getB() + startingIndex);
+        }
         return partitions;
     }
 
