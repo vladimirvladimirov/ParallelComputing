@@ -1,6 +1,5 @@
 package com.fmi.parallelcomputing.core.solutions.FloydWarshall;
 
-import com.fmi.parallelcomputing.core.Constants;
 import com.fmi.parallelcomputing.core.solutions.AbstractSolver;
 import com.fmi.parallelcomputing.utils.Interval;
 import com.fmi.parallelcomputing.utils.Utils;
@@ -11,7 +10,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * This class is implementation of parallel computing of the Floyd-Warshall algorithm for finding all shortest
- * paths between all pairs in graph, represented by its edge weight matrix. I don't use explicit {@link com.fmi.parallelcomputing.graph.Graph}
+ * paths between all pairs in graph, represented by its edge weight matrix. I don't use explicit {@link com.fmi.parallelcomputing.utils.graph.Graph}
  * structure here for optimization purposes.
  */
 public class FloydWarshalSolver extends AbstractSolver {
@@ -91,7 +90,7 @@ public class FloydWarshalSolver extends AbstractSolver {
     }
 
     public static void main(String [] args) throws Exception {
-        new FloydWarshalSolver(4, Constants.GRAPH_INPUT_FILENAME);
+        new FloydWarshalSolver(4, com.fmi.parallelcomputing.core.Constants.GRAPH_INPUT_FILENAME);
         AbstractSolver.main(args);
     }
 

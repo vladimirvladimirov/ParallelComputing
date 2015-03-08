@@ -1,11 +1,10 @@
 package com.fmi.parallelcomputing.core.solutions.TSP;
 
-import com.fmi.parallelcomputing.core.Constants;
 import com.fmi.parallelcomputing.core.solutions.AbstractSolver;
-import com.fmi.parallelcomputing.graph.Graph;
-import com.fmi.parallelcomputing.graph.NeighbourMatrixIndirectedGraph;
 import com.fmi.parallelcomputing.utils.Interval;
 import com.fmi.parallelcomputing.utils.Utils;
+import com.fmi.parallelcomputing.utils.graph.Graph;
+import com.fmi.parallelcomputing.utils.graph.NeighbourMatrixIndirectedGraph;
 
 import java.io.IOException;
 import java.util.List;
@@ -32,7 +31,7 @@ public class DynamicProgrammingSolver extends AbstractSolver {
     }
 
     public static void main(String[] args) throws Exception {
-        new DynamicProgrammingSolver(32, Constants.GRAPH_INPUT_FILENAME);
+        new DynamicProgrammingSolver(32, com.fmi.parallelcomputing.core.Constants.GRAPH_INPUT_FILENAME);
         AbstractSolver.main(args);
     }
 
@@ -98,7 +97,7 @@ public class DynamicProgrammingSolver extends AbstractSolver {
             }
         }
 
-        int bestAns = Constants.MAX_INT;
+        int bestAns = 0x7fffffff;
         for (int firstNode = 0; firstNode < n; firstNode++) {
             for (int secondNode = 0; secondNode < n; secondNode++) {
                 if (firstNode != secondNode) {

@@ -1,9 +1,9 @@
-package com.fmi.parallelcomputing.core.testgen;
+package com.fmi.parallelcomputing.core.testgen.TSP;
 
-import com.fmi.parallelcomputing.core.Constants;
-import com.fmi.parallelcomputing.core.Constants.GraphConstant;
-import com.fmi.parallelcomputing.graph.Graph;
-import com.fmi.parallelcomputing.graph.NeighbourMatrixIndirectedGraph;
+import com.fmi.parallelcomputing.core.testgen.Constants;
+import com.fmi.parallelcomputing.core.testgen.Constants.GraphConstant;
+import com.fmi.parallelcomputing.utils.graph.Graph;
+import com.fmi.parallelcomputing.utils.graph.NeighbourMatrixIndirectedGraph;
 import com.fmi.parallelcomputing.utils.Utils;
 
 import java.io.FileOutputStream;
@@ -35,7 +35,7 @@ public class TravelingSalesmanTestGenerator {
 
     public static void main(String[] args) throws Exception {
         Map<GraphConstant, Integer> graphProperties = generateGraphProperties(args);
-        TravelingSalesmanTestGenerator generator = new TravelingSalesmanTestGenerator(graphProperties, Constants.GRAPH_INPUT_FILENAME, Constants.GRAPH_SOLUTION_FILENAME);
+        TravelingSalesmanTestGenerator generator = new TravelingSalesmanTestGenerator(graphProperties, com.fmi.parallelcomputing.core.Constants.GRAPH_INPUT_FILENAME, com.fmi.parallelcomputing.core.Constants.GRAPH_SOLUTION_FILENAME);
         generator.createGraph();
         generator.printGraph();
         generator.printSolution();

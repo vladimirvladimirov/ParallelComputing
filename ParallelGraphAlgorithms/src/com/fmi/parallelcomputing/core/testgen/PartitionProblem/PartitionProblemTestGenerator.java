@@ -1,6 +1,6 @@
-package com.fmi.parallelcomputing.core.testgen;
+package com.fmi.parallelcomputing.core.testgen.PartitionProblem;
 
-import com.fmi.parallelcomputing.core.Constants;
+import com.fmi.parallelcomputing.core.testgen.Constants;
 import com.fmi.parallelcomputing.utils.Utils;
 
 import java.io.FileNotFoundException;
@@ -33,11 +33,11 @@ public class PartitionProblemTestGenerator {
 
     public static void main(String [] args) throws Exception {
         Map<Constants.PartitionProblemConstants, Integer> inputConstraints = new HashMap<Constants.PartitionProblemConstants, Integer>();
-        inputConstraints.put(Constants.PartitionProblemConstants.NUMBERS_COUNT, 32);
+        inputConstraints.put(Constants.PartitionProblemConstants.INPUT_SET_SIZE, 32);
         inputConstraints.put(Constants.PartitionProblemConstants.MIN_NUMBER, 0);
         inputConstraints.put(Constants.PartitionProblemConstants.MAX_NUMBER, 100);
 
-        PartitionProblemTestGenerator generator = new PartitionProblemTestGenerator(inputConstraints, Constants.PARTITION_INPUT_FILENAME);
+        PartitionProblemTestGenerator generator = new PartitionProblemTestGenerator(inputConstraints, com.fmi.parallelcomputing.core.Constants.PARTITION_INPUT_FILENAME);
         generator.createInput();
         generator.printInput();
     }
@@ -52,7 +52,7 @@ public class PartitionProblemTestGenerator {
     }
 
     private void createInput() {
-        numberCount = inputProperties.get(Constants.PartitionProblemConstants.NUMBERS_COUNT);
+        numberCount = inputProperties.get(Constants.PartitionProblemConstants.INPUT_SET_SIZE);
         generatedSet = new LinkedList<Integer>();
 
         int minNumber = inputProperties.get(Constants.PartitionProblemConstants.MIN_NUMBER);

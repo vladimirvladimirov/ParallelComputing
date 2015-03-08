@@ -1,6 +1,6 @@
-package com.fmi.parallelcomputing.core.testgen;
+package com.fmi.parallelcomputing.core.testgen.FloydWarshall;
 
-import com.fmi.parallelcomputing.core.Constants;
+import com.fmi.parallelcomputing.core.testgen.Constants;
 import com.fmi.parallelcomputing.utils.Utils;
 
 import java.io.FileNotFoundException;
@@ -35,7 +35,7 @@ public class FloydWarshallTestGenerator {
         inputGraphProperties.put(Constants.GraphConstant.GRAPH_MAX_EDGE, 10000);
         inputGraphProperties.put(Constants.GraphConstant.GRAPH_NODE_NUMBER, 2*5120);
 
-        FloydWarshallTestGenerator generator = new FloydWarshallTestGenerator(inputGraphProperties, Constants.GRAPH_INPUT_FILENAME);
+        FloydWarshallTestGenerator generator = new FloydWarshallTestGenerator(inputGraphProperties, com.fmi.parallelcomputing.core.Constants.GRAPH_INPUT_FILENAME);
         generator.createGraphMatrix();
         generator.printGraph();
     }

@@ -1,6 +1,5 @@
 package com.fmi.parallelcomputing.core.solutions.TSP;
 
-import com.fmi.parallelcomputing.core.Constants;
 import com.fmi.parallelcomputing.core.solutions.AbstractSolver;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ public class BruteforceSolver extends DynamicProgrammingSolver {
     }
 
     public static void main(String [] args) throws Exception {
-        new BruteforceSolver(32, Constants.GRAPH_INPUT_FILENAME);
+        new BruteforceSolver(32, com.fmi.parallelcomputing.core.Constants.GRAPH_INPUT_FILENAME);
         AbstractSolver.main(args);
     }
 }

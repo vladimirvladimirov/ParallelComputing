@@ -58,11 +58,19 @@ public abstract class AbstractSolver {
 
 
     public static void main(String [] args) throws Exception {
+        solver.run();
+        solver.logResults();
+    }
+
+    public static void run() throws Exception {
         solver.readInput();
         solver.startTimer();
         solver.solve();
         solver.endTimer();
-        solver.logResults();
+    }
+
+    public static double getRunningTimeInSeconds() {
+        return (solver.timestampAlgorithmEnd.getTime() - solver.timestampAlgorithmBegin.getTime() ) / 1000.0;
     }
 
     private static final class Lock {

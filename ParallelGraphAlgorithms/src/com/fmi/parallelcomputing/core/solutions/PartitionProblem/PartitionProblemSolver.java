@@ -1,6 +1,5 @@
 package com.fmi.parallelcomputing.core.solutions.PartitionProblem;
 
-import com.fmi.parallelcomputing.core.Constants;
 import com.fmi.parallelcomputing.core.solutions.AbstractSolver;
 import com.fmi.parallelcomputing.utils.Interval;
 import com.fmi.parallelcomputing.utils.Utils;
@@ -77,7 +76,7 @@ public class PartitionProblemSolver extends AbstractSolver {
     }
 
     public static void main(String[] args) throws Exception {
-        new PartitionProblemSolver(4, Constants.PARTITION_INPUT_FILENAME);
+        new PartitionProblemSolver(4, com.fmi.parallelcomputing.core.Constants.PARTITION_INPUT_FILENAME);
         AbstractSolver.main(args);
     }
 
