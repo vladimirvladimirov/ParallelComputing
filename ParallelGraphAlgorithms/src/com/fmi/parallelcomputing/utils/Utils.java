@@ -2,11 +2,19 @@ package com.fmi.parallelcomputing.utils;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Dev on 3/7/2015.
  */
 public class Utils {
+
+    private static final Random rand;
+
+    static {
+        rand = new Random();
+    }
+
     public static boolean isPowerOf2(int threadCount) {
         if (threadCount < 0) return false;
 
@@ -21,10 +29,32 @@ public class Utils {
         List<Interval> partitions = new LinkedList<Interval>();
         int divisionSize = indexesToCheck / threadCount;
 
-        for(int i=0; i<indexesToCheck; i+= divisionSize) {
-            partitions.add(new Interval(i,i+divisionSize-1));
+        if (indexesToCheck % threadCount > 0) {
+            divisionSize++;
+        }
+
+        int currBegin = 0;
+        for(int i=0; i<indexesToCheck % threadCount; i++) {
+            partitions.add(new Interval(currBegin, currBegin + divisionSize - 1));
+            currBegin += divisionSize;
+        }
+
+        if (indexesToCheck % threadCount > 0) {
+            divisionSize--;
+        }
+        for(int i=partitions.size(); i<threadCount; i++) {
+            partitions.add(new Interval(currBegin, currBegin + divisionSize - 1));
+            currBegin += divisionSize;
         }
 
         return partitions;
+    }
+
+    public static int getIntInRange(int from, int to) {
+        if (from > to) {
+            throw new IllegalArgumentException(String.format(ExceptionsMessages.ILLEGAL_INTERVAL_FORMAT,from,to));
+        }
+        int gen = rand.nextInt(to - from + 1) + from;
+        return gen;
     }
 }

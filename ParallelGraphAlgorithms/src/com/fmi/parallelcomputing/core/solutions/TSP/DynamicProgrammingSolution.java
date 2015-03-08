@@ -105,6 +105,13 @@ public class DynamicProgrammingSolution extends AbstractSolver {
         answer = bestAns;
     }
 
+    @Override
+    public void logResults() {
+        out.println(String.format("%fs", (timestampAlgorithmEnd.getTime() - timestampAlgorithmBegin.getTime()) / 1000.0));
+        out.println(String.format("Minimal path has length %d",answer));
+        out.flush();
+    }
+
     public static void main(String [] args) throws Exception {
         new DynamicProgrammingSolution(32, Constants.INPUT_FILENAME);
         AbstractSolver.main(args);

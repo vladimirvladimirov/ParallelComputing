@@ -30,6 +30,13 @@ public class BruteforceSolver extends DynamicProgrammingSolution {
         super.answer = this.answer;
     }
 
+    @Override
+    public void logResults() {
+        out.println(String.format("%fs", (timestampAlgorithmEnd.getTime() - timestampAlgorithmBegin.getTime()) / 1000.0));
+        out.println(String.format("Minimal path has length %d",answer));
+        out.flush();
+    }
+
     private void generateAllPerms(int [] perm, int [] used, int currIndex) {
         if (currIndex >= n) {
             int currSol = calculateDistance(perm);

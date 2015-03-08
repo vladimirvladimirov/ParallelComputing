@@ -1,9 +1,7 @@
 package com.fmi.parallelcomputing.core.solutions;
 
 import com.fmi.parallelcomputing.graph.Graph;
-import com.fmi.parallelcomputing.utils.ExceptionsMessages;
 import com.fmi.parallelcomputing.utils.FileReader;
-import com.fmi.parallelcomputing.utils.Utils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,14 +33,12 @@ public abstract class AbstractSolver {
 
     protected Date timestampAlgorithmEnd;
 
-    protected List<Integer> optimalPath;
-
     protected int answer;
 
     protected AbstractSolver(int threadCount, String inputFilename) throws IOException {
-        if (!Utils.isPowerOf2(threadCount)) {
-            throw new IllegalArgumentException(String.format(ExceptionsMessages.ILLEGAL_THREAD_COUNT,threadCount));
-        }
+//        if (!Utils.isPowerOf2(threadCount)) {
+//            throw new IllegalArgumentException(String.format(ExceptionsMessages.ILLEGAL_THREAD_COUNT_FORMAT,threadCount));
+//        }
         this.threadCount = threadCount;
         in = new FileReader(inputFilename);
         out = new PrintWriter(System.out);
@@ -52,11 +48,7 @@ public abstract class AbstractSolver {
 
     public abstract void solve() throws Exception;
 
-    protected void logResults() {
-        out.println(String.format("%fs", (timestampAlgorithmEnd.getTime() - timestampAlgorithmBegin.getTime()) / 1000.0));
-        out.println(String.format("Minimal path has length %d",answer));
-        out.flush();
-    }
+    public abstract void logResults();
 
     protected void endTimer() {
         timestampAlgorithmEnd = new Date();

@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * Created by Dev on 3/6/2015.
+ * This class provides functionality for reading from file.
  */
 public class FileReader implements Reader {
 
@@ -41,7 +41,9 @@ public class FileReader implements Reader {
     @Override
     public String getNextLine()  throws IOException{
         prepareToken();
-        return tok.toString();
+        String wholeLine = tok.toString();
+        tok = null;
+        return wholeLine;
     }
 
     private void prepareToken() throws IOException {
