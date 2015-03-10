@@ -34,9 +34,6 @@ public abstract class AbstractSolver {
     protected final Object lock = new Lock();
 
     protected AbstractSolver(int threadCount, String inputFilename) throws IOException {
-//        if (!Utils.isPowerOf2(threadCount)) {
-//            throw new IllegalArgumentException(String.format(ExceptionsMessages.ILLEGAL_THREAD_COUNT_FORMAT,threadCount));
-//        }
         this.threadCount = threadCount;
         in = new FileReader(inputFilename);
         out = new PrintWriter(System.out);

@@ -26,7 +26,7 @@ public class PartitionProblemSolver extends AbstractSolver {
 
     private ConcurrentSkipListSet<Integer> allSolutions;
 
-    protected PartitionProblemSolver(int threadCount, String inputFilename) throws IOException {
+    public PartitionProblemSolver(int threadCount, String inputFilename) throws IOException {
         super(threadCount, inputFilename);
         workers = new CopyOnWriteArrayList<Worker>();
         allSolutions = new ConcurrentSkipListSet<Integer>();

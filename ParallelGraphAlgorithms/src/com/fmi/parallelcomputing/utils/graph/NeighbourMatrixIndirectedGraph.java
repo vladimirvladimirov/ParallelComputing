@@ -1,7 +1,7 @@
 package com.fmi.parallelcomputing.utils.graph;
 
 import com.fmi.parallelcomputing.utils.exceptions.IllegalOperationException;
-import com.fmi.parallelcomputing.utils.ExceptionsMessages;
+import com.fmi.parallelcomputing.utils.exceptions.ExceptionsMessages;
 
 import java.util.LinkedList;
 import java.util.List;

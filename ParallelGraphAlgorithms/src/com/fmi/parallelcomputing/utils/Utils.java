@@ -1,5 +1,7 @@
 package com.fmi.parallelcomputing.utils;
 
+import com.fmi.parallelcomputing.utils.exceptions.ExceptionsMessages;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;

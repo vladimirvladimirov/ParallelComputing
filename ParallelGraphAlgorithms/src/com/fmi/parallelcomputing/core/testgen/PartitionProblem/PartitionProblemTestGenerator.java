@@ -33,9 +33,9 @@ public class PartitionProblemTestGenerator {
 
     public static void main(String [] args) throws Exception {
         Map<Constants.PartitionProblemConstants, Integer> inputConstraints = new HashMap<Constants.PartitionProblemConstants, Integer>();
-        inputConstraints.put(Constants.PartitionProblemConstants.INPUT_SET_SIZE, 32);
-        inputConstraints.put(Constants.PartitionProblemConstants.MIN_NUMBER, 0);
-        inputConstraints.put(Constants.PartitionProblemConstants.MAX_NUMBER, 100);
+        inputConstraints.put(Constants.PartitionProblemConstants.INPUT_SET_SIZE, 27);
+        inputConstraints.put(Constants.PartitionProblemConstants.MIN_NUMBER, -1000);
+        inputConstraints.put(Constants.PartitionProblemConstants.MAX_NUMBER, 1000);
 
         PartitionProblemTestGenerator generator = new PartitionProblemTestGenerator(inputConstraints, com.fmi.parallelcomputing.core.Constants.PARTITION_INPUT_FILENAME);
         generator.createInput();

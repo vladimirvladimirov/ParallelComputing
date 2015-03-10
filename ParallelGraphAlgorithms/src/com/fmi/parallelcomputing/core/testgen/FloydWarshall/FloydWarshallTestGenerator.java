@@ -13,7 +13,7 @@ import java.util.Map;
  * This is a generator for test cases for the Floyd-Warshal distributed algorithm. Its output consists of
  * number of nodes in the graph and its representation as a matrix of the edges weights. Node indexing starts from 0.
  */
-public class FloydWarshallTestGenerator {
+public class FloydWarshallTestGenerator{
 
     private PrintWriter graphOut;
 
