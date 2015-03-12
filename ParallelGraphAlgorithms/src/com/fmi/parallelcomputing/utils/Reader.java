@@ -15,4 +15,5 @@ public interface Reader {
 
     public String getNextLine()throws IOException;
 
+    public double getNextDouble() throws IOException;
 }

@@ -41,9 +41,15 @@ public class FileReader implements Reader {
     @Override
     public String getNextLine()  throws IOException{
         prepareToken();
-        String wholeLine = tok.toString();
+        String wholeLine = tok.nextToken("");
         tok = null;
         return wholeLine;
+    }
+
+    @Override
+    public double getNextDouble() throws IOException {
+        prepareToken();
+        return Double.parseDouble(tok.nextToken());
     }
 
     private void prepareToken() throws IOException {
