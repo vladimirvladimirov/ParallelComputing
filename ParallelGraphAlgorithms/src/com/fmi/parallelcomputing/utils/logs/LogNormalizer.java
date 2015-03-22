@@ -13,7 +13,8 @@ import java.io.PrintWriter;
 public class LogNormalizer {
 
     public static void main(String [] args) {
-        File currentDir = new File("./logs_backup");
+        File currentDir = new File("./");
+//        File currentDir = new File("./logs_backup");
         String col [] = {"%-10s", "%-25s", "%-10s"};
         String val [] = {"%-10d", "%-25.5f", "%-10.5f"};
         StringBuilder newOutput = null;
@@ -46,14 +47,14 @@ public class LogNormalizer {
                         newOutput.append("\r\n");
                     }
                 } catch (Exception e) {
-                    System.out.println(newOutput.toString());
-//                    try {
-//                        PrintWriter out = new PrintWriter(file);
-//                        out.print(newOutput.toString());
-//                        out.flush();
-//                        out.close();
-//                    } catch (FileNotFoundException e1) {
-//                    }
+//                    System.out.println(newOutput.toString());
+                    try {
+                        PrintWriter out = new PrintWriter(file);
+                        out.print(newOutput.toString());
+                        out.flush();
+                        out.close();
+                    } catch (FileNotFoundException e1) {
+                    }
                 }
             }
         }

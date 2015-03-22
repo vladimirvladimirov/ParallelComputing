@@ -31,7 +31,7 @@ public class DynamicProgrammingSolver extends AbstractSolver {
     }
 
     public static void main(String[] args) throws Exception {
-        new DynamicProgrammingSolver(32, com.fmi.parallelcomputing.core.Constants.GRAPH_INPUT_FILENAME);
+        new DynamicProgrammingSolver(8, com.fmi.parallelcomputing.core.Constants.GRAPH_INPUT_FILENAME);
         AbstractSolver.main(args);
     }
 
@@ -53,12 +53,10 @@ public class DynamicProgrammingSolver extends AbstractSolver {
     }
 
     private void initializeDp() {
-        dp = new int[n][][];
+        dp = new int[n][n][(1 << n)];
         for (int i = 0; i < n; i++) {
-            dp[i] = new int[n][];
             for (int j = 0; j < n; j++) {
-                dp[i][j] = new int[1 << n];
-                for (int k = 0; k < (1 << n); k++)
+                for (int k = 0; k < 1 << n; k++)
                     dp[i][j][k] = 0x0fffffff;
             }
         }
